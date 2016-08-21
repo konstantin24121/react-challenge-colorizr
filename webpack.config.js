@@ -15,7 +15,8 @@ module.exports = {
 	resolve: {
 		root: path.resolve(__dirname),
 		alias: {
-			'@common': 'src/common'
+			'@common': 'src/common',
+			'@colorizr': 'src/colorizr'
 		},
 		extensions: ['', '.css', '.js', '.scss']
 	},
@@ -38,6 +39,10 @@ module.exports = {
 		}, {
 			test: /\.scss$/,
 			loaders: ['style', 'css', 'sass']
+		},
+		{
+			test: /\.css$/,
+			loaders: ['style', 'css']
 		},
 		{
 			test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 

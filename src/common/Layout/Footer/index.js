@@ -1,7 +1,8 @@
 import React from 'react';
+import "./style.scss";
 
 export default () => (
-	<footer>
+	<footer className="footer">
 		
 	</footer>
 );

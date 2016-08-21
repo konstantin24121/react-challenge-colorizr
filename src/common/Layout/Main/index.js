@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import {Link} from 'react-router';
+import './style.scss';
 
 export default class MainLayout extends React.Component {
 	static propTypes = {
@@ -12,9 +13,10 @@ export default class MainLayout extends React.Component {
 		return (
 			<div>
 				<Header />
-				<div className="container">
-					{this.props.children}
-					<Link to="two">Two</Link>
+				<div className="mainframe">
+					<div className="container">
+						{this.props.children}
+					</div>
 				</div>
 				<Footer /> 
 			</div>

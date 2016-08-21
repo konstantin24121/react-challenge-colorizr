@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class MainPage extends React.Component {
+export default class ExportPage extends React.Component {
 	static propTypes = {
 	};
 
@@ -10,7 +10,7 @@ export default class MainPage extends React.Component {
 
 	render() {
 		return (
-			<div>Main page</div>
+			<div>Export page</div>
 		);
 	}
 }

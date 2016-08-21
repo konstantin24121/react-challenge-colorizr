@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class TwoPage extends React.Component {
+export default class PresentsPage extends React.Component {
 	static propTypes = {
 	};
 
@@ -10,7 +10,7 @@ export default class TwoPage extends React.Component {
 
 	render() {
 		return (
-			<div>Two page</div>
+			<div>Presents page</div>
 		);
 	}
 }
