@@ -12,13 +12,9 @@ import 'react-color-picker/index.css';
 class Colorpicker extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			titleMod: ''
-		};
 	}
 	onDrag(color) {
 		this.props.changeGlobalColor(color);
-		// this.checkLightness(color);
 	}
 
 	checkLightness(color){
@@ -30,7 +26,7 @@ class Colorpicker extends React.Component {
 	}
 
 	render() {
-		let titleMod = checkLightness(this.props.color);
+		let titleMod = this.checkLightness(this.props.color);
 		return (
 			<div className="colorpicker">
 				<h1 className={`colorpicker__title ${titleMod}`}>Choose your color</h1>
