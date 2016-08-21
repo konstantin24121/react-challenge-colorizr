@@ -1,4 +1,5 @@
 import React from 'react';
+import MainLayout from '@common/layout/Main';
 
 export default class PresentsPage extends React.Component {
 	static propTypes = {
@@ -10,7 +11,9 @@ export default class PresentsPage extends React.Component {
 
 	render() {
 		return (
-			<div>Presents page</div>
+			<MainLayout>
+				<div>Presents page</div>
+			</MainLayout>
 		);
 	}
 }

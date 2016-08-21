@@ -1,8 +1,17 @@
+@import "variables/index";
+
 .colorpicker{
 	padding: 50px 0;
 	text-align: center;
 	&__title{
 		font-weight: 600;
 		margin-bottom: 40px;
+
+		&._light{
+			color: $c_gray_1;
+		}
+		&._dark{
+			color: $c_gray_01;
+		}
 	}
 }

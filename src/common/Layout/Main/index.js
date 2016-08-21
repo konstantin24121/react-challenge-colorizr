@@ -1,8 +1,9 @@
+import './style.scss';
+import '@common/styles/index.scss';
+
 import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-import {Link} from 'react-router';
-import './style.scss';
 
 export default class MainLayout extends React.Component {
 	static propTypes = {

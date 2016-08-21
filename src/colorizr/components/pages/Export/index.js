@@ -1,4 +1,5 @@
 import React from 'react';
+import MainLayout from '@common/layout/Main';
 
 export default class ExportPage extends React.Component {
 	static propTypes = {
@@ -10,7 +11,9 @@ export default class ExportPage extends React.Component {
 
 	render() {
 		return (
-			<div>Export page</div>
+			<MainLayout>
+				<div>Export page</div>
+			</MainLayout>
 		);
 	}
 }

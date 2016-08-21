@@ -42,8 +42,8 @@ module.exports = {
             "off",
         ],
         "semi": [
-            "warn",
-            "always"
-        ]
+            "off",
+        ],
+        "react/prop-types": 0
     }
 };

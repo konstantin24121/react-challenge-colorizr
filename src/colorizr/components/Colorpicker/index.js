@@ -1,26 +1,57 @@
 
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import ColorPicker from 'react-color-picker';
+import {changeGlobalColor} from '@colorizr/actions/colorpicker';
+import tinycolor from 'tinycolor2';
+
 import "./style.scss";
 import 'react-color-picker/index.css';
 
-export default class Colorpicker extends React.Component {
-	constructor(props) {
+class Colorpicker extends React.Component {
+	constructor(props){
 		super(props);
+		this.state = {
+			titleMod: ''
+		};
+	}
+	onDrag(color) {
+		this.props.changeGlobalColor(color);
+		// this.checkLightness(color);
 	}
 
-	onDrag(color) {
-		console.log(color);
+	checkLightness(color){
+		let _color = tinycolor(color);
+		if( _color.isDark() ){
+			return '_light'
+		}
+		return '_dark'
 	}
 
 	render() {
+		let titleMod = checkLightness(this.props.color);
 		return (
 			<div className="colorpicker">
-				<h1 className="colorpicker__title">Choose your color</h1>
+				<h1 className={`colorpicker__title ${titleMod}`}>Choose your color</h1>
 				<div className="colorpicket__box">
-					<ColorPicker value={'red'} onDrag={::this.onDrag} />
+					<ColorPicker value={this.props.color} onDrag={::this.onDrag} />
 				</div>
 			</div>
 		);
 	}
 }
+
+function mapStateToProps(state){
+	return {
+		colorpicker: state.colorpicker
+	};
+}
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({
+		changeGlobalColor: changeGlobalColor
+	}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Colorpicker)

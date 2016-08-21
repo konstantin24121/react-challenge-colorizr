@@ -1,25 +1,36 @@
 import React from 'react';
-import ColorPicker from '@colorizr/components/Colorpicker';
-import { Row } from 'react-bootstrap';
 
-export default class CreatePage extends React.Component {
-	static propTypes = {};
+import {connect} from 'react-redux';
+import {Header, Footer} from '@common/layout';
+import ColorPicker from '@colorizr/components/Colorpicker';
+
+
+class CreatePage extends React.Component {
+	static propTypes = {
+		colorpicker: React.PropTypes.object
+	};
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			color: 'red'
-		};
 	}
-
 
 	render() {
 		return (
 			<div>
-				<Row>
-					<ColorPicker />
-				</Row>
+				<Header />
+				<div style={{backgroundColor: this.props.colorpicker.color}}>
+					<ColorPicker color={this.props.colorpicker.color}/>
+				</div>
+				<Footer />
 			</div>
 		);
 	}
 }
+
+function mapStateToProps(state){
+	return {
+		colorpicker: state.colorpicker
+	};
+}
+
+export default connect(mapStateToProps)(CreatePage);
