@@ -14,4 +14,10 @@
 			color: $c_gray_01;
 		}
 	}
+	&__box{
+		margin: 0 auto;
+		padding: 20px;
+		background-color: $c_gray_1;
+		display: inline-block;
+	}
 }

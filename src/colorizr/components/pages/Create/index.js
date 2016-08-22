@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Header, Footer} from '@common/layout';
 import ColorPicker from '@colorizr/components/Colorpicker';
-
+import Palite from '@colorizr/components/Palite'
 
 class CreatePage extends React.Component {
 	static propTypes = {
@@ -19,7 +19,12 @@ class CreatePage extends React.Component {
 			<div>
 				<Header />
 				<div style={{backgroundColor: this.props.colorpicker.color}}>
-					<ColorPicker color={this.props.colorpicker.color}/>
+					<div className="container">
+						<ColorPicker color={this.props.colorpicker.color}/>
+					</div>
+					<div className="container">
+						<Palite colors={this.props.palite.colors}/>
+					</div>
 				</div>
 				<Footer />
 			</div>
@@ -29,7 +34,8 @@ class CreatePage extends React.Component {
 
 function mapStateToProps(state){
 	return {
-		colorpicker: state.colorpicker
+		colorpicker: state.colorpicker,
+		palite: state.palite
 	};
 }
 

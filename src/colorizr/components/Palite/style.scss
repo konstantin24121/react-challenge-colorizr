@@ -1,0 +1,17 @@
+@import "variables/index";
+.palite{
+	&__set{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	&__set-item{
+		$scale: 5rem;
+		display: inline-block;
+		margin: 1rem	;
+		width: $scale;
+		height: $scale;
+		background-color: $c_gray_11;
+		border-radius: 50%;
+	}
+}

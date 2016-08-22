@@ -30,7 +30,7 @@ class Colorpicker extends React.Component {
 		return (
 			<div className="colorpicker">
 				<h1 className={`colorpicker__title ${titleMod}`}>Choose your color</h1>
-				<div className="colorpicket__box">
+				<div className="colorpicker__box">
 					<ColorPicker value={this.props.color} onDrag={::this.onDrag} />
 				</div>
 			</div>
