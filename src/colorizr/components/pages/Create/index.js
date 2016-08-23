@@ -3,7 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Header, Footer} from '@common/layout';
 import ColorPicker from '@colorizr/components/Colorpicker';
-import Palite from '@colorizr/components/Palite'
+import Palite from '@colorizr/components/Palite';
+import SaturationPalite from '@colorizr/components/SaturationPalite';
 
 class CreatePage extends React.Component {
 	static propTypes = {
@@ -24,7 +25,9 @@ class CreatePage extends React.Component {
 					</div>
 					<div className="container">
 						<Palite colors={this.props.palite.colors}/>
+						<SaturationPalite colors={this.props.palite.colors}/>
 					</div>
+
 				</div>
 				<Footer />
 			</div>

@@ -1,0 +1,24 @@
+@import "variables/index";
+.palite{
+	$block: &;
+	&__set{
+		padding: 3rem 2rem;
+		&._light{
+			background-color: $c_gray_11;
+		}
+		&._dark{
+			background-color: $c_gray_01;
+		}
+	}
+	&__set-item{
+		#{$block}._saturation &{
+			$scale: 5rem;
+			display: inline-block;
+			margin: 1rem	;
+			width: $scale * 1.5;
+			height: $scale;
+			background-color: $c_gray_1;
+			border-radius: 0.5rem;
+		}
+	}
+}
