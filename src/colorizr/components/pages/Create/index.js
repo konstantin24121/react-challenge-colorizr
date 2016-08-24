@@ -25,7 +25,7 @@ class CreatePage extends React.Component {
 					</div>
 					<div className="container">
 						<Palite colors={this.props.palite.colors}/>
-						<SaturationPalite colors={this.props.palite.colors}/>
+						<SaturationPalite color={this.props.colorpicker.color}/>
 					</div>
 
 				</div>

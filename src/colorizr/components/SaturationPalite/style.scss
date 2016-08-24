@@ -3,10 +3,15 @@
 	$block: &;
 	&__set{
 		padding: 3rem 2rem;
-		&._light{
+		
+		will-change: background-color;
+		transition-property: background-color;
+		transition-duration: $b_td;
+		transition-timing-function: $b_tf;
+		&.is-light{
 			background-color: $c_gray_11;
 		}
-		&._dark{
+		&.is-dark{
 			background-color: $c_gray_01;
 		}
 	}
@@ -19,6 +24,7 @@
 			height: $scale;
 			background-color: $c_gray_1;
 			border-radius: 0.5rem;
+			
 		}
 	}
 }
