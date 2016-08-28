@@ -1,13 +1,16 @@
 @import "variables/index";
-.palite{
-	$block: &;
+$samples: &;
+.palete{
 	&__set{
-		padding: 3rem 2rem;
-		
-		will-change: background-color;
-		transition-property: background-color;
-		transition-duration: $b_td;
-		transition-timing-function: $b_tf;
+		#{$samples}._saturation &{
+			padding: 3rem 2rem;
+			
+			will-change: background-color;
+			transition-property: background-color;
+			transition-duration: $b_td;
+			transition-timing-function: $b_tf;
+		}
+
 		&.is-light{
 			background-color: $c_gray_11;
 		}
@@ -15,16 +18,16 @@
 			background-color: $c_gray_01;
 		}
 	}
-	&__set-item{
-		#{$block}._saturation &{
+	&__item{
+		#{$samples}._saturation &{
 			$scale: 5rem;
+			animation: none;
 			display: inline-block;
 			margin: 1rem	;
 			width: $scale * 1.5;
 			height: $scale;
 			background-color: $c_gray_1;
 			border-radius: 0.5rem;
-			
 		}
 	}
 }

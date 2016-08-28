@@ -24,7 +24,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, 'public'),
 		filename: 'bundle.js',
-		publicPath: '/'
+		publicPath: 'http://localhost:3000/'
 	},
 
 	plugins: [
@@ -39,14 +39,15 @@ module.exports = {
 		}, {
 			test: /\.scss$/,
 			loaders: ['style', 'css', 'sass']
-		},
-		{
+		}, {
 			test: /\.css$/,
 			loaders: ['style', 'css']
-		},
-		{
-			test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-			loader: `url?limit=100000`
+		}, {
+			test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+		}, {
+			test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: 'file-loader'
 		}]
 	},
 	sassLoader: {

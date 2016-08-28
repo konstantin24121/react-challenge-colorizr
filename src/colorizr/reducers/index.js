@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux';
 
-import ColorpickerReducer from './colorpicker.js';
-import paliteReducer from './palite.js';
+import colorpickerReducer from './colorpicker.js';
+import paleteReducer from './palete.js';
+import saturateReducer from './saturate.js';
 
 const allReducers = combineReducers({
-	colorpicker: ColorpickerReducer,
-	palite: paliteReducer
+	colorpicker: colorpickerReducer,
+	palete: paleteReducer,
+	saturate: saturateReducer
 });
 
 export default allReducers;

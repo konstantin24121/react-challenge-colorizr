@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router, browserHistory, IndexRedirect , Route} from 'react-router';
 
-import { ExplorePage, CreatePage, ExportPage, PresentsPage } from './components/pages';
+import { ExplorePage, CreatePage, ExportPage, PresentsPage } from './containers/pages';
 import NotFound from '@common/pages/NotFound';
 
 export default () => (

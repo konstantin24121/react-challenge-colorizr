@@ -1,0 +1,8 @@
+@import "~font-awesome/scss/mixins";
+@import "~font-awesome/scss/variables";
+
+// Add fontrotatoawesome class
+.#{$fa-css-prefix}-rotate-45  { @include fa-icon-rotate(45deg, 1);  }
+.#{$fa-css-prefix}-rotate-135 { @include fa-icon-rotate(135deg, 2); }
+.#{$fa-css-prefix}-rotate-225 { @include fa-icon-rotate(225deg, 3); }
+.#{$fa-css-prefix}-rotate-315 { @include fa-icon-rotate(315deg, 3); }

@@ -6,7 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/index',
+  entry: './src/colorizr/index',
   
   output: {
     path: path.join(__dirname, 'public'),
@@ -20,6 +20,15 @@ module.exports = {
         compressor: { warnings: false }
     })
   ],
+
+  resolve: {
+    root: path.resolve(__dirname),
+    alias: {
+      '@common': 'src/common',
+      '@colorizr': 'src/colorizr'
+    },
+    extensions: ['', '.css', '.js', '.scss']
+  },
 
   module: {
     loaders: [
