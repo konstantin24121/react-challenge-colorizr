@@ -7,6 +7,7 @@ import {Header, Footer} from '@common/layout';
 import ColorPicker from '@colorizr/components/Colorpicker';
 import SelectedColor from '@colorizr/components/SelectedColor';
 import SaturationSamples from '@colorizr/containers/SaturationSamples';
+import MixSamples from '@colorizr/containers/MixSamples';
 
 import {changeGlobalColor, initPalete, removeColorFromPalete} from '@colorizr/actions/colorpicker';
 
@@ -42,6 +43,7 @@ class CreatePage extends React.Component {
 							removeColorFromPalete = {removeColorFromPalete} 
 						/>
 						<SaturationSamples />
+						<MixSamples />
 					</div>
 				</div>
 				<Footer />

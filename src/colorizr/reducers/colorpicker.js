@@ -3,7 +3,8 @@ import Immutable from 'immutable';
 import * as actionTypes from "@colorizr/actions";
 
 const initialState = Immutable.Map({
-	color: '#9CCC65'
+	color: '#9CCC65',
+	mix: '#64B5F6'
 });
 
 export default function(state = initialState, action){
