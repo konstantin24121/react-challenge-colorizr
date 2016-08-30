@@ -1,0 +1,31 @@
+@import 'variables/index';
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+$scale: 0.75em;
+.mix{
+	position: relative;
+	display: inline-block;
+	vertical-align: bottom;
+
+	&._hidden{
+		overflow: hidden;
+	}
+	&__sample{
+		width: $scale;
+		height: $scale;
+		margin-left: 0.5em;
+		display: inline-block;
+		border-radius: $border-radius-base;
+		cursor: pointer;
+	}
+	&__picker{
+		$width: 370px;
+		position: absolute;
+		top: 0;
+		width: $width;
+		padding: $alert-padding;
+		left: 100%;
+		background-color: $c_gray_1;
+		box-shadow: 1px 1px 4px transparentize($c_gray_01, 0.9);
+	}
+}

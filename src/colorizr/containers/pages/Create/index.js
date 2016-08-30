@@ -9,7 +9,10 @@ import SelectedColor from '@colorizr/components/SelectedColor';
 import SaturationSamples from '@colorizr/containers/SaturationSamples';
 import MixSamples from '@colorizr/containers/MixSamples';
 
-import {changeGlobalColor, initPalete, removeColorFromPalete} from '@colorizr/actions/colorpicker';
+import {changeGlobalColor} from '@colorizr/actions/colorpicker';
+import {removeColorFromPalete} from '@colorizr/actions/palete';
+import {initSaturation} from '@colorizr/actions/saturation';
+import {initMixed} from '@colorizr/actions/mixer';
 
 class CreatePage extends React.Component {
 	static propTypes = {
@@ -34,7 +37,8 @@ class CreatePage extends React.Component {
 						<ColorPicker 
 							color={currentColor} 
 							changeGlobalColor={this.props.changeGlobalColor}
-							initPalete={this.props.initPalete}
+							initSaturation={this.props.initSaturation}
+							initMixed={this.props.initMixed}
 						/>
 					</div>
 					<div className="container">
@@ -52,7 +56,6 @@ class CreatePage extends React.Component {
 	}
 }
 
-
 function mapStateToProps(state){
 	return {
 		currentColor: state.colorpicker.get('color'),
@@ -64,8 +67,9 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
 	return bindActionCreators({
 		changeGlobalColor: changeGlobalColor,
-		initPalete: initPalete,
+		initSaturation: initSaturation,
 		removeColorFromPalete: removeColorFromPalete,
+		initMixed: initMixed
 	}, dispatch);
 }
 

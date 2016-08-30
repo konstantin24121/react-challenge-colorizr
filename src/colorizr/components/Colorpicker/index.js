@@ -14,7 +14,8 @@ export default class Colorpicker extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.initPalete(this.props.color);
+		this.props.initSaturation(this.props.color);
+		this.props.initMixed(this.props.color, this.props.mixcolor);
 	}
 
 	render() {

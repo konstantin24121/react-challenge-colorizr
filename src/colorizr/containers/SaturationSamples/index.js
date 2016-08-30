@@ -3,7 +3,7 @@ import Palete from '@colorizr/components/Palete';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import { addColorToPalete, removeColorFromPalete, bulkRemoveFromPalete, bulkInsertToPalete} from '@colorizr/actions/colorpicker';
+import { addColorToPalete, removeColorFromPalete, bulkRemoveFromPalete, bulkInsertToPalete} from '@colorizr/actions/palete';
 
 import '@colorizr/components/Palete/style.scss';
 import './style.scss';
@@ -28,7 +28,7 @@ export default class SaturationSamples extends React.Component {
 					<h2 className="samples__title">Darker and Lighter</h2>
 					<Palete 
 						selectedPalete = {selectedPalete} 
-						saturatePalete = {saturatePalete}
+						palete = {saturatePalete}
 						addColorToPalete = {addColorToPalete} 
 						removeColorFromPalete = {removeColorFromPalete} 
 						bulkRemoveFromPalete = {bulkRemoveFromPalete} 

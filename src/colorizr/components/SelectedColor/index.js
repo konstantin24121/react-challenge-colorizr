@@ -11,7 +11,6 @@ export default class Palete extends React.Component {
 		super(props);
 	}
 
-
 	//render selected palete
 	renderPalete(){
 		let paleteItem = [];

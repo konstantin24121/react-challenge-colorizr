@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-
+import * as actionTypes from "@colorizr/actions";
 import {createPalite} from '@colorizr/utils/saturator';
 
 const initialState = Immutable.Map({
@@ -8,8 +8,8 @@ const initialState = Immutable.Map({
 
 export default function(state = initialState, action){
 	switch (action.type){
-		case 'INIT_PALETE':
-		case 'CHANGE_COLOR':{
+		case actionTypes.INIT_SATURATION:
+		case actionTypes.CHANGE_COLOR:{
 			return state.set('colors', Immutable.List(createPalite(action.payload)))
 		} 
 		default:

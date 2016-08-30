@@ -3,7 +3,7 @@ import * as actionTypes from "@colorizr/actions";
 import {MAX_SELECTED_COLORS} from '@colorizr/config';
 
 const initialState = Immutable.Map({
-	colors: Immutable.OrderedSet(['#ffddee'])
+	colors: Immutable.OrderedSet([])
 });
 
 export default function(state = initialState, action){

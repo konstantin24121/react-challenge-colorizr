@@ -1,10 +1,11 @@
 import React from 'react';
 import Palete from '@colorizr/components/Palete';
-import ColorPicker from 'react-color-picker';
+import Mixer from '@colorizr/components/Mixer';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import { addColorToPalete, removeColorFromPalete, bulkRemoveFromPalete, bulkInsertToPalete} from '@colorizr/actions/colorpicker';
+import { addColorToPalete, removeColorFromPalete, bulkRemoveFromPalete, bulkInsertToPalete} from '@colorizr/actions/palete';
+import { changeMixColor } from '@colorizr/actions/mixer';
 
 import '@colorizr/components/Palete/style.scss';
 // import './style.scss';
@@ -14,18 +15,17 @@ export default class MixSamples extends React.Component {
 		super(props);
 	}
 
-	onDrag(color){
-		console.log(color)
-	}
-
 	render() {
 		let {
+			mixcolor,
 			selectedPalete, 
-			saturatePalete,
+			mixPalete,
 			addColorToPalete,
 			removeColorFromPalete,
 			bulkRemoveFromPalete,
-			bulkInsertToPalete
+			bulkInsertToPalete,
+			changeMixColor,
+			currentColor
 		} = this.props;
 		
 		return (
@@ -33,15 +33,11 @@ export default class MixSamples extends React.Component {
 				<div className="samples__box panel">
 					<h2 className="samples__title">
 						Mix with
-						<span className="mix">
-							<div className="mix__picker">
-								<ColorPicker value="#ffffff" onDrag={::this.onDrag} />
-							</div>
-						</span>
+						<Mixer color={mixcolor} currentColor={currentColor} onDrag={changeMixColor} />
 					</h2>
 					<Palete 
 						selectedPalete = {selectedPalete} 
-						saturatePalete = {saturatePalete}
+						palete = {mixPalete}
 						addColorToPalete = {addColorToPalete} 
 						removeColorFromPalete = {removeColorFromPalete} 
 						bulkRemoveFromPalete = {bulkRemoveFromPalete} 
@@ -55,7 +51,9 @@ export default class MixSamples extends React.Component {
 
 function mapStateToProps(state){
 	return {
-		saturatePalete: state.saturate.get('colors'),
+		currentColor: state.colorpicker.get('color'),
+		mixcolor: state.mixer.get('mix'),
+		mixPalete: state.mixer.get('colors'),
 		selectedPalete: state.palete.get('colors')
 	};
 }
@@ -65,7 +63,8 @@ function matchDispatchToProps(dispatch){
 		addColorToPalete: addColorToPalete,
 		removeColorFromPalete: removeColorFromPalete,
 		bulkRemoveFromPalete: bulkRemoveFromPalete,
-		bulkInsertToPalete: bulkInsertToPalete
+		bulkInsertToPalete: bulkInsertToPalete,
+		changeMixColor: changeMixColor
 	}, dispatch);
 }
 

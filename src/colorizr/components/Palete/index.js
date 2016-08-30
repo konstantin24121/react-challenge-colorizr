@@ -17,7 +17,7 @@ export default class SaturationPalete extends React.Component {
 	}
 
 	renderPalete(){
-		const colors = this.props.saturatePalete;
+		const colors = this.props.palete;
 		const selectedColors = this.props.selectedPalete;
 		let _palete = [];
 
@@ -39,7 +39,7 @@ export default class SaturationPalete extends React.Component {
 
 	renderButtons(){
 		const {lightBg} = this.state;
-		const colors = this.props.saturatePalete;
+		const colors = this.props.palete;
 		const selectedColors = this.props.selectedPalete;
 
 		let intersection = selectedColors.intersect(colors);
