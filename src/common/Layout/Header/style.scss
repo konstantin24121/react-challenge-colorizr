@@ -1,6 +1,9 @@
 @import "variables/index";
 
 .header{
-	background-color: $c_gray_11;
+	background-color: $c_gray_1;
 	padding: 15px 0;
+	box-shadow: 0 0 12px transparentize($c_gray_0, 0.8);
+	z-index: 100;
+	position: relative;
 }

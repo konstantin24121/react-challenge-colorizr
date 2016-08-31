@@ -10,7 +10,8 @@ const initialState = Immutable.Map({
 export default function(state = initialState, action){
 	switch (action.type){
 		case actionTypes.INIT_MIXER:
-			return state.set('colors', mixColor(action.payload.color, state.get('mix')));
+		case actionTypes.CHANGE_COLOR:
+			return state.set('colors', mixColor(action.payload, state.get('mix')));
 		case actionTypes.CHANGE_MIX_COLOR: 
 			return state.merge({
 				mix: action.payload.mixcolor,

@@ -3,4 +3,14 @@
 .footer{
 	background-color: $c_gray_01;
 	height: 60px;
+	color: $c_gray_11;
+	line-height: 60px;
+
+	&__link{
+		color: $c_gray_11;
+		will-change: color;
+		transition-property: color;
+		transition-duration: $b_td;
+		transition-timing-function: $b_tf;
+	}
 }
