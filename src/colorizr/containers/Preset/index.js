@@ -1,6 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import {Row, Col} from 'react-bootstrap';
 import {Icon} from 'react-fa';
+import Spinner from '@colorizr/components/Spinner';
+
+import { fetchDataIfNeeded } from '@colorizr/actions/presets';
 
 import './style.scss';
 
@@ -9,9 +14,16 @@ export default class Preset extends React.Component {
 		super(props);
 	}
 
-	render() {
+	componentDidMount() {
+		this.props.fetchDataIfNeeded();
+	}
+
+	renderPreset(){
+		this.props.presets.forEach(function(item, key){
+			console.log(key, item);
+		})
 		return (
-			<div className="preset">
+			<div>
 				<Row>
 					<Col xs={12}>
 						<h3 className="preset__title">Sample</h3>
@@ -34,6 +46,31 @@ export default class Preset extends React.Component {
 					</ul>
 				</Row>
 			</div>
+		)
+	}
+
+	renderLoader(){
+		return (
+			<Row>
+				<Spinner isActive={this.props.isFetching} scale='4em'/>
+			</Row>
+		)
+	}
+
+	render() {
+		return (
+			<div className="preset">
+				{ this.props.presets.size === 0 ? ::this.renderLoader() : ::this.renderPreset()}
+			</div>
 		);
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		isFetching: state.presets.get('isFetching'),
+		presets: state.presets.get('presets')
+	};
+}
+
+export default connect(mapStateToProps, {fetchDataIfNeeded})(Preset);

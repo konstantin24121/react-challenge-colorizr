@@ -6,10 +6,6 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 export default class MainLayout extends React.Component {
-	static propTypes = {
-		children: React.PropTypes.object
-	}
-
 	render() {
 		return (
 			<div>

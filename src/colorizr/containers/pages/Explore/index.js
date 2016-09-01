@@ -1,16 +1,15 @@
 import React from 'react';
 
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import MainLayout from '@common/layout/Main';
 import SelectedColor from '@colorizr/components/SelectedColor';
-import Preset from '@colorizr/components/Preset';
+import Preset from '@colorizr/containers/Preset';
 
-import {removeColorFromPalete} from '@colorizr/actions/palete';
+import { removeColorFromPalete } from '@colorizr/actions/palete';
 
 export default class ExplorePage extends React.Component {
-
 
 	constructor(props) {
 		super(props);
@@ -19,7 +18,10 @@ export default class ExplorePage extends React.Component {
 	render() {
 		const {
 			selectedPalete,
-			removeColorFromPalete} = this.props;
+			removeColorFromPalete,
+			isPresetsFetching,
+			preset
+		} = this.props;
 
 		return (
 			<MainLayout>
@@ -27,19 +29,22 @@ export default class ExplorePage extends React.Component {
 					colors={selectedPalete}
 					removeColorFromPalete = {removeColorFromPalete} 
 				/>
-				<Preset />
+				<Preset 
+					isFetching={isPresetsFetching} 
+					preset={preset}
+					/>
 			</MainLayout>
 		);
 	}
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
 	return {
-		selectedPalete: state.palete.get('colors')
+		selectedPalete: state.palete.get('colors'),
 	};
 }
 
-function matchDispatchToProps(dispatch){
+function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
 		removeColorFromPalete: removeColorFromPalete
 	}, dispatch);

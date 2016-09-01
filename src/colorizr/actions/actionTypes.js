@@ -9,3 +9,7 @@ export const BULK_INSERT = 'BULK_INSERT';
 
 export const INIT_MIXER = 'INIT_MIXER';
 export const CHANGE_MIX_COLOR = 'CHANGE_MIX_COLOR';
+
+export const FETCH_START = 'FETCH_START';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_ERROR = 'FETCH_ERROR';
