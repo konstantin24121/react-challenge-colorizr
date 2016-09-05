@@ -8,7 +8,7 @@ import { addColorToPalete, removeColorFromPalete, bulkRemoveFromPalete, bulkInse
 import '@colorizr/components/Palete/style.scss';
 import './style.scss';
 
-export default class SaturationSamples extends React.Component {
+class SaturationSamples extends React.Component {
 	constructor(props){
 		super(props);
 	}

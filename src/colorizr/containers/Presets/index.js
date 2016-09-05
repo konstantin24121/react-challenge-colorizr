@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import {Row} from 'react-bootstrap';
 import Preset from '@colorizr/components/Preset';
@@ -8,7 +7,7 @@ import Spinner from '@colorizr/components/Spinner';
 
 import { fetchDataIfNeeded } from '@colorizr/actions/presets';
 
-export default class Presets extends React.Component {
+class Presets extends React.Component {
 	constructor(props) {
 		super(props);
 	}

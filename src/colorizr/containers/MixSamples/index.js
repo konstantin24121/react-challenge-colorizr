@@ -10,7 +10,7 @@ import { changeMixColor } from '@colorizr/actions/mixer';
 import '@colorizr/components/Palete/style.scss';
 // import './style.scss';
 
-export default class MixSamples extends React.Component {
+class MixSamples extends React.Component {
 	constructor(props) {
 		super(props);
 	}

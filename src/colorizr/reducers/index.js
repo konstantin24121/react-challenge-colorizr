@@ -5,6 +5,7 @@ import paleteReducer from './palete.js';
 import saturateReducer from './saturate.js';
 import mixerReducer from './mixer.js';
 import presetsReducer from './presets.js';
+import schemesReducer from './schemes.js';
 
 const allReducers = combineReducers({
 	colorpicker: colorpickerReducer,
@@ -12,6 +13,7 @@ const allReducers = combineReducers({
 	saturate: saturateReducer,
 	mixer: mixerReducer,
 	presets: presetsReducer,
+	schemes: schemesReducer
 });
 
 export default allReducers;

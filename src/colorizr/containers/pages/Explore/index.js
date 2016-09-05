@@ -9,7 +9,7 @@ import Presets from '@colorizr/containers/Presets';
 
 import { removeColorFromPalete, addColorToPalete } from '@colorizr/actions/palete';
 
-export default class ExplorePage extends React.Component {
+class ExplorePage extends React.Component {
 
 	constructor(props) {
 		super(props);
