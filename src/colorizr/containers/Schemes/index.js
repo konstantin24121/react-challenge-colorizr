@@ -53,6 +53,7 @@ class Schemes extends React.Component {
 	render() {
 		return (
 			<div>
+				{console.log(this.props.schemes)}
 				{ this.props.schemes.size === 0 ? ::this.renderLoader() : ::this.renderSchemes()}
 			</div>
 		);

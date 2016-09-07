@@ -8,9 +8,10 @@ import ColorPicker from '@colorizr/components/Colorpicker';
 import SelectedColor from '@colorizr/components/SelectedColor';
 import SaturationSamples from '@colorizr/containers/SaturationSamples';
 import MixSamples from '@colorizr/containers/MixSamples';
+import CurrentColor from '@colorizr/components/CurrentColor';
 
 import {changeGlobalColor} from '@colorizr/actions/colorpicker';
-import {removeColorFromPalete} from '@colorizr/actions/palete';
+import {removeColorFromPalete, addColorToPalete} from '@colorizr/actions/palete';
 import {initSaturation} from '@colorizr/actions/saturation';
 import {initMixed} from '@colorizr/actions/mixer';
 
@@ -39,6 +40,12 @@ class CreatePage extends React.Component {
 							changeGlobalColor={this.props.changeGlobalColor}
 							initSaturation={this.props.initSaturation}
 							initMixed={this.props.initMixed}
+						/>
+						<CurrentColor 
+							removeColorFromPalete={this.props.removeColorFromPalete}
+							addColorToPalete={this.props.addColorToPalete}
+							currentColor={currentColor} 
+							selectedColors={selectedPalete}
 						/>
 					</div>
 					<div className="container">
@@ -69,6 +76,7 @@ function matchDispatchToProps(dispatch){
 		changeGlobalColor: changeGlobalColor,
 		initSaturation: initSaturation,
 		removeColorFromPalete: removeColorFromPalete,
+		addColorToPalete: addColorToPalete,
 		initMixed: initMixed
 	}, dispatch);
 }

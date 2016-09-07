@@ -2,7 +2,7 @@ import Immutable from 'immutable';
 import * as actionTypes from "@colorizr/actions";
 
 const initialState = Immutable.Map({
-	presets: Immutable.List(),
+	presets: Immutable.Map(),
 	isFetching: false
 });
 
