@@ -15,6 +15,7 @@ module.exports = {
 	resolve: {
 		root: path.resolve(__dirname),
 		alias: {
+			'@nm': 'node_modules',
 			'@common': 'src/common',
 			'@colorizr': 'src/colorizr'
 		},
