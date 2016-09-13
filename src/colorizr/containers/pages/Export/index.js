@@ -8,8 +8,9 @@ import tinycolor from 'tinycolor2';
 import MainLayout from '@common/layout/Main';
 import {Table, FormControl, Navbar, Nav, NavItem} from 'react-bootstrap';
 import FormatToggle from '@colorizr/components/FormatToggle';
+import ExportCode from '@colorizr/components/ExportCode';
 
-import {changeFormat, changeLanguage} from '@colorizr/actions/export';
+import {changeFormat, changeLanguage, changeValueName} from '@colorizr/actions/export';
 import * as CONST from '@colorizr/constants';
 
 class ExportPage extends React.Component {
@@ -18,28 +19,35 @@ class ExportPage extends React.Component {
 		super(props);
 	}
 
+	handleChange(key, e){
+		let value = e.nativeEvent.target.value;
+		this.props.changeValueName(key, value);
+	}
+
 	render() {
 		let {selectedColors, variablesNames, format, language, changeFormat, changeLanguage} = this.props;
+		let handleChange = this.handleChange;
 
 		if( selectedColors.size !== 0 ){
-			let count = 0;
-			let ColorRow = selectedColors.map(function(item, key){
-				var color = tinycolor(item);
+			let ColorRow = variablesNames.zip(selectedColors).map(function(item, key){
+				let color = tinycolor(item[1]);
 				return (
 					<tr key={key} >
-						<td style={{backgroundColor: item}}></td>
+						<td style={{backgroundColor: item[1]}}></td>
 						<td>#{color.toHex().toUpperCase()}</td>
 						<td>{color.toRgbString().toUpperCase()}</td>
 						<td>
 							<FormControl
 								type = "text"
 								placeholder = "Enter variable name"
-								value = {variablesNames.get(count++)}
+								value = {item[0]}
+								onChange={handleChange.bind(this, key)}
 							/>
 						</td>
 					</tr>
 				)
-			})
+			}.bind(this))
+
 			return (
 				<MainLayout>
 					<h1 className="text-center" style={{marginBottom: '1em'}}>Customize and Export colors for Sass, Less or Stylus</h1>
@@ -56,7 +64,7 @@ class ExportPage extends React.Component {
 							{ColorRow}
 						</tbody>
 					</Table>
-					<Navbar style={{marginBottom: '3em'}}>
+					<Navbar style={{marginBottom: 0, borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}>
 						<Navbar.Header>
 							<Navbar.Brand>
 								Export code
@@ -74,6 +82,11 @@ class ExportPage extends React.Component {
 							</Navbar.Form>
 						</Navbar.Collapse>
 					</Navbar>
+					<ExportCode 
+						language={language}
+						format={format}
+						selectedColors={selectedColors}
+						variablesNames={variablesNames} />
 				</MainLayout>
 			);
 		}else{
@@ -98,7 +111,8 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
 	return bindActionCreators({
 		changeFormat: changeFormat,
-		changeLanguage: changeLanguage
+		changeLanguage: changeLanguage,
+		changeValueName: changeValueName
 	}, dispatch);
 }
 

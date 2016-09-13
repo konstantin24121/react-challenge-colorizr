@@ -37,5 +37,5 @@ function fetchSchemes() {
 }
 
 function shouldDataFetching(state) {
-	return state.presets.get('presets').size === 0;
+	return state.schemes.get('schemes').size === 0;
 }

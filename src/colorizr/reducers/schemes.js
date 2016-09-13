@@ -12,7 +12,6 @@ export default function(state = initialState, action){
 			return state.set('isFetching', true)
 
 		case actionTypes.SCHEMES_FETCH_SUCCESS:{
-			console.log(action.payload)
 			return state.merge({
 				'schemes': Immutable.Map(action.payload),
 				'isFetching': false

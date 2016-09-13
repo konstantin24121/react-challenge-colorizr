@@ -1,0 +1,13 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+.code{
+	padding: 15px;
+	background-color: $gray-lighter;
+	font-size: 1.1em;
+
+	&__var{
+		color: $brand-danger;
+		font-weight: light;
+		margin-right: 0.5em;
+	}
+}

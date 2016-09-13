@@ -13,3 +13,10 @@ export const changeLanguage = (language) => {
 		payload: language
 	}
 } 
+
+export const changeValueName = (key, value) => {
+	return {
+		type: actionTypes.CHANGE_VALUE_NAME,
+		payload: {key, value}
+	}
+} 
