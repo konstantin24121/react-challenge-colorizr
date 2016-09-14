@@ -6,7 +6,7 @@ export const mixColor = function(color, mixColor){
 	let _mixedArray = [];
 
 	for (let i =  0; i < _arr.length; i++) {
-		_mixedArray.push(tinycolor.mix(mixColor, _arr[i], 50).toString())
+		_mixedArray.push(tinycolor.mix(mixColor, _arr[i], 50).toHexString().toUpperCase())
 	}
 	return _mixedArray;
 } 

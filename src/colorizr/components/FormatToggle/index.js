@@ -1,11 +1,19 @@
 import React from 'react';
 import {FormGroup} from 'react-bootstrap';
 import Toggle from 'react-toggle';
-import * as CONST from '@colorizr/constants';
+import * as CONST from '@colorizr/config/constants';
+import {saveFormat} from '@colorizr/utils/dataSaver';
 
 import './style.scss';
 
 export default class FormatToggle extends React.Component {
+
+	componentWillReceiveProps(nextProps) {
+		if( nextProps.format !== this.props.format ){
+			saveFormat(nextProps.format);
+			console.log('Save format');
+		}
+	}
 
 	render() {
 		let {format, changeFormat} = this.props;

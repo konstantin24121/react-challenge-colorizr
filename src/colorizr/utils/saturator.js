@@ -7,9 +7,9 @@ export const createPalite = function (curentColor){
 	let callback, _arr = [];
 
 	if( color.isDark() ){
-		callback = (color, i) => color.lighten(50 - 50 / paliteNumber * i).toString()
+		callback = (color, i) => color.lighten(50 - 50 / paliteNumber * i).toString().toUpperCase()
 	}else{
-		callback = (color, i) => color.darken(50 / paliteNumber * i).toString()
+		callback = (color, i) => color.darken(50 / paliteNumber * i).toString().toUpperCase()
 	}
 	for (var i = paliteNumber - 1; i >= 0; i--) {
 		let color = tinycolor(curentColor);

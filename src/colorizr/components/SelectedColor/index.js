@@ -2,6 +2,7 @@ import React from 'react';
 import {Icon} from 'react-fa';
 import {MAX_SELECTED_COLORS} from '@colorizr/config';
 import {isDark} from '@colorizr/utils/isDark';
+import {saveSelectedColors} from '@colorizr/utils/dataSaver';
 
 import '@colorizr/components/Palete/style.scss';
 import './style.scss';
@@ -9,6 +10,13 @@ import './style.scss';
 export default class Palete extends React.Component {
 	constructor(props){
 		super(props);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if( !nextProps.colors.equals(this.props.colors) ){
+			saveSelectedColors(nextProps.colors);
+			console.log('Save selected color');
+		}
 	}
 
 	//render selected palete

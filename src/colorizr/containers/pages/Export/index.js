@@ -11,7 +11,8 @@ import FormatToggle from '@colorizr/components/FormatToggle';
 import ExportCode from '@colorizr/components/ExportCode';
 
 import {changeFormat, changeLanguage, changeValueName} from '@colorizr/actions/export';
-import * as CONST from '@colorizr/constants';
+import {saveLanguage, saveVariablesNames} from '@colorizr/utils/dataSaver';
+import * as CONST from '@colorizr/config/constants';
 
 class ExportPage extends React.Component {
 
@@ -22,6 +23,17 @@ class ExportPage extends React.Component {
 	handleChange(key, e){
 		let value = e.nativeEvent.target.value;
 		this.props.changeValueName(key, value);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if( nextProps.language !== this.props.language ){
+			saveLanguage(nextProps.language);
+			console.log('Save language');
+		}
+		if( !nextProps.variablesNames.equals(this.props.variablesNames) ){
+			saveVariablesNames(nextProps.variablesNames);
+			console.log('Save variables names');
+		}
 	}
 
 	render() {

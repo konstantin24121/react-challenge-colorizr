@@ -1,4 +1,5 @@
 import Immutable from 'immutable';
+
 import * as actionTypes from "@colorizr/actions";
 import {MAX_SELECTED_COLORS} from '@colorizr/config';
 

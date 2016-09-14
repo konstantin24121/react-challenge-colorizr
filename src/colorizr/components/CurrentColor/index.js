@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import {saveCurrentColor} from '@colorizr/utils/dataSaver';
 
 import './style.scss';
 
@@ -7,6 +8,13 @@ export default class CurrentColor extends React.Component {
 
 	constructor(props) {
 		super(props);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if( nextProps.currentColor !== this.props.currentColor){
+			saveCurrentColor(nextProps.currentColor);
+			console.log('Save current color');
+		}
 	}
 
 	render() {

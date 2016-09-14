@@ -3,7 +3,7 @@ import tinycolor from 'tinycolor2';
 
 import './style.scss';
 
-import * as CONST from '@colorizr/constants';
+import * as CONST from '@colorizr/config/constants';
 
 export default class ExportCode extends React.Component {
 
