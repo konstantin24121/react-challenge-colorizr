@@ -54,3 +54,10 @@ export function validateFormat(format) {
 	}
 	return CONST.FORMAT_ARRAY.indexOf(format) !== -1
 }
+
+export function validateMixColor(color){
+	if (color === null) {
+		return false;
+	}
+	return validateColor(color)
+}

@@ -16,6 +16,14 @@ export function saveCurrentColor(color) {
 	}
 }
 
+export function saveMixColor(color) {
+	try {
+		localStorage.setItem('mix', color);
+	} catch (e) {
+		console.error(e);
+	}
+}
+
 export function saveFormat(format) {
 	try {
 		localStorage.setItem('format', format);

@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
-import { validateSelectedColors, validateCurrentColor, validateLanguage, validateFormat, validateVariablesNames} from '@colorizr/utils/validator';
-import {DEFAULT_CURRENT_COLOR, MAX_SELECTED_COLORS} from '@colorizr/config';
+import { validateSelectedColors, validateCurrentColor, validateLanguage, validateFormat, validateVariablesNames, validateMixColor} from '@colorizr/utils/validator';
+import {DEFAULT_CURRENT_COLOR, MAX_SELECTED_COLORS, DEFAULT_MIX_COLOR} from '@colorizr/config';
 import * as CONST from "@colorizr/config/constants";
 
 export const getSavedData = () => {
@@ -9,11 +9,13 @@ export const getSavedData = () => {
 	const language = loadLanguage();
 	const format = loadFormat();
 	const variablesNames = Immutable.List(loadVariablesNames());
+	const mix = loadMixColor();
 
 	return {
 		colorpicker: Immutable.Map({ color: currentColor }),
 		palete: Immutable.Map({ colors }),
-		export: Immutable.Map({ language, format, variablesNames })
+		export: Immutable.Map({ language, format, variablesNames }),
+		mixer: Immutable.Map({ mix })
 	}
 }
 
@@ -103,5 +105,20 @@ const loadVariablesNames = () => {
 	} catch (e) {
 		console.error(e);
 		return varNamessArray;
+	}
+}
+
+const loadMixColor = () => {
+	try {
+		const color = localStorage.getItem('mix');
+
+		if (!validateMixColor(color)) {
+			return DEFAULT_MIX_COLOR;
+		}
+
+		return color;
+	} catch (e) {
+		console.error(e);
+		return DEFAULT_MIX_COLOR;
 	}
 }

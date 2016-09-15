@@ -29,6 +29,7 @@ function fetchPresets() {
 				payload: response.presets
 			});
 		}).catch(function(error){
+			console.log(error);
 			dispatch({
 				type: actionTypes.FETCH_ERROR
 			});

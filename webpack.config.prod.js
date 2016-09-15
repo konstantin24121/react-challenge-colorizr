@@ -6,43 +6,55 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/colorizr/index',
-  
-  output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'bundle.js',
-    publicPath: '/public/'
-  },
+	entry: './src/colorizr/index',
 
-  plugins: [
-    new ExtractTextPlugin('style.css'),
-    new webpack.optimize.UglifyJsPlugin({
-        compressor: { warnings: false }
-    })
-  ],
+	output: {
+		path: path.join(__dirname, 'public'),
+		filename: 'bundle.js',
+		publicPath: '/public/'
+	},
 
-  resolve: {
-    root: path.resolve(__dirname),
-    alias: {
-      '@common': 'src/common',
-      '@colorizr': 'src/colorizr'
-    },
-    extensions: ['', '.css', '.js', '.scss']
-  },
+	plugins: [
+		new ExtractTextPlugin('style.css'),
+		new webpack.optimize.UglifyJsPlugin({
+			compressor: { warnings: false }
+		})
+	],
 
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'src')
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass!postcss')
-      }
-    ]
-  },
+	resolve: {
+		root: path.resolve(__dirname),
+		alias: {
+			'@nm': 'node_modules',
+			'@common': 'src/common',
+			'@colorizr': 'src/colorizr'
+		},
+		extensions: ['', '.css', '.js', '.scss']
+	},
 
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
+	module: {
+		loaders: [{
+			test: /\.js$/,
+			loaders: ['babel'],
+			include: path.join(__dirname, 'src')
+		}, {
+			test: /\.scss$/,
+			loader: ExtractTextPlugin.extract('css!postcss!sass')
+		}, {
+			test: /\.css$/,
+			loaders: ['style', 'css']
+		}, {
+			test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+		}, {
+			test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: 'file-loader'
+		}]
+	},
+	sassLoader: {
+		includePaths: [
+			path.resolve(__dirname, 'src/common/styles')
+		]
+	},
+
+	postcss: [autoprefixer({ browsers: ['last 2 versions'] })]
 };

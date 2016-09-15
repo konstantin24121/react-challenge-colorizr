@@ -2,10 +2,7 @@ import Immutable from 'immutable';
 import {mixColor} from '@colorizr/utils/mixer';
 import * as actionTypes from "@colorizr/actions";
 
-const initialState = Immutable.Map({
-	mix: '#64B5F6',
-	colors: Immutable.List()
-})
+const initialState = Immutable.Map({})
 
 export default function(state = initialState, action){
 	switch (action.type){

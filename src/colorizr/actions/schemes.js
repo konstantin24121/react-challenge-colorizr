@@ -29,6 +29,7 @@ function fetchSchemes() {
 				payload: response.schemes
 			});
 		}).catch(function(error){
+			console.log(error);
 			dispatch({
 				type: actionTypes.SCHEMES_FETCH_ERROR
 			});

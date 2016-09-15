@@ -1,6 +1,7 @@
 import React from 'react';
 import DocumentEvents from 'react-document-events';
 import ColorPicker from 'react-color-picker';
+import {saveMixColor} from '@colorizr/utils/dataSaver';
 import './style.scss';
 
 export default class Mixer extends React.Component {
@@ -17,8 +18,14 @@ export default class Mixer extends React.Component {
 		})
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if( nextProps.color !== this.props.color){
+			saveMixColor(nextProps.color);
+			console.log('Save mix color');
+		}
+	}
+
 	toogleHandler = (e) => {
-		console.log(e);
 		this.tooglePicker();
 	}
 
