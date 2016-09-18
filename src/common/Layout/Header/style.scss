@@ -1,4 +1,4 @@
-@import "variables/index";
+@import "env";
 
 .header{
 	background-color: $c_gray_1;
@@ -6,4 +6,8 @@
 	box-shadow: 0 0 12px transparentize($c_gray_0, 0.8);
 	z-index: 100;
 	position: relative;
+	text-align: center;
+	@include respond-to('sm') {
+		text-align: left;
+	}
 }

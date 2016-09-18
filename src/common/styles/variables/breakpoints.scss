@@ -1,0 +1,5 @@
+@include add-breakpoint('xs', (min-width 554px));
+@include add-breakpoint('sm', (min-width 768px));
+@include add-breakpoint('md', (min-width 992px));
+@include add-breakpoint('lg', (min-width 1200px));
+@include add-breakpoint('xlg', (min-width 1600px));
