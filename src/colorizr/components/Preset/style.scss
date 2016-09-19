@@ -1,5 +1,5 @@
-@import "variables/index";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "env";
+
 
 .preset{
     $item: null;
@@ -15,6 +15,11 @@
         margin: 0;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include respond-to('xs') {
+            justify-content: flex-start;
+        }
     }
     &__item{
         $item: &;
@@ -26,13 +31,18 @@
         height: $height;
         padding: 1em;
         text-align: center;
-        margin: 15px;
+        margin: 15px 8px;
         flex: 0 0 5%;
         will-change: background-color;
         transition-property: background-color;
         transition-duration: $b_td;
         transition-timing-function: $b_tf;
         cursor: pointer;
+    
+        @include respond-to('sm') {
+            margin: 15px;
+        }
+
         &.is-selected{
             background-color: $c_gray_11;
         }

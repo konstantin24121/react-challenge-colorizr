@@ -27,7 +27,7 @@ export default class Scheme extends React.Component {
 				onClick={(::this.isActive()) ? bulkRemoveFromPalete.bind(null, colors) : bulkInsertToPalete.bind(null, colors)}>
 				<h2 className="scheme__name">
 					{name}
-					{ (::this.isActive()) ? <Icon name="check" className="pull-right"/> : null }
+					{ (::this.isActive()) ? <Icon name="check" className="pull-right" style={{fontSize: '50%'}}/> : null }
 				</h2>
 				<ul className="scheme__palete">
 					{Palete}

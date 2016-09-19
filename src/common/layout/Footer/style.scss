@@ -1,10 +1,17 @@
-@import "variables/index.scss";
+@import "env";
 
 .footer{
 	background-color: $c_gray_01;
-	height: 60px;
+	// height: 60px;
 	color: $c_gray_11;
-	line-height: 60px;
+	line-height: 1.618;
+	padding: 10px 0;
+	
+	@include respond-to('md') {
+		height: 60px;
+		line-height: 60px;
+		padding: 0;
+	}
 
 	&__link{
 		color: $c_gray_11;
@@ -12,5 +19,14 @@
 		transition-property: color;
 		transition-duration: $b_td;
 		transition-timing-function: $b_tf;
+		width: 100%;
+	}
+}
+
+.github{
+	text-align: center;
+
+	@include respond-to('sm') {
+		text-align: right;
 	}
 }

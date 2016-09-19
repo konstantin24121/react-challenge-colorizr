@@ -63,7 +63,7 @@ class ExportPage extends React.Component {
 			return (
 				<MainLayout>
 					<h1 className="text-center" style={{marginBottom: '1em'}}>Customize and Export colors for Sass, Less or Stylus</h1>
-					<Table striped bordered condensed hover style={{marginBottom: '3em'}}>
+					<Table striped bordered condensed hover responsive style={{marginBottom: '3em'}}>
 						<thead>
 							<tr>
 								<th>Color</th>

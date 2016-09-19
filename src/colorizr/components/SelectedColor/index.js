@@ -3,7 +3,7 @@ import {Icon} from 'react-fa';
 import {MAX_SELECTED_COLORS} from '@colorizr/config';
 import {isDark} from '@colorizr/utils/isDark';
 import {saveSelectedColors} from '@colorizr/utils/dataSaver';
-
+// import 'react-fastclick';
 import '@colorizr/components/Palete/style.scss';
 import './style.scss';
 
@@ -54,7 +54,11 @@ export default class Palete extends React.Component {
 				<div className="samples__box panel">
 					<h2 className="samples__title">Select up to ten colors</h2>
 					<h4	className="samples__descr">Select Colors by clicking on them</h4>
-						{this.renderPalete()}
+					<div className="palete">
+						<ul className="palete__set">
+							{this.renderPalete()}
+						</ul>
+					</div>
 				</div>
 			</div>
 		);

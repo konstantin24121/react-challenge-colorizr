@@ -6,10 +6,10 @@ export default () => (
 	<header className="header">
 		<div className="container">
 			<Row>
-				<Col xs={12} md={4}>
+				<Col xs={12} sm={6} md={5}>
 					<Logo />
 				</Col>
-				<Col xs={12} md={4} mdOffset={4}>
+				<Col xs={12} sm={6} md={5} mdOffset={2}>
 					<Nav />
 				</Col>
 			</Row>

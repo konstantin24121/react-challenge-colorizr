@@ -1,11 +1,11 @@
-@import 'variables/index';
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "env";
 
 $scale: 0.75em;
 .mix{
-	position: relative;
+	
 	display: inline-block;
 	vertical-align: bottom;
+	position: relative;
 
 	&._hidden{
 		overflow: hidden;
@@ -22,11 +22,17 @@ $scale: 0.75em;
 	&__picker{
 		$width: 370px;
 		position: absolute;
-		top: 0;
+		top: 100%;
 		width: $width;
 		padding: $alert-padding;
-		left: 100%;
+		left: -140px;
 		background-color: $c_gray_1;
 		box-shadow: 1px 1px 4px transparentize($c_gray_01, 0.9);
+		z-index: 100;
+
+		@include respond-to('sm') {
+			top: 0;
+			left: 100%;
+		}
 	}
 }
